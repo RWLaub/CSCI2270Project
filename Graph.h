@@ -40,6 +40,7 @@ class Graph
         std::vector<vertex> TSP2Opt(std::string startingSta, float *dis); //Richard
         void printR(std::vector<vertex> path); //Rami
         float totalTourLength(std::vector<vertex> path);
+	bool isStation(std::string station);
 
 
     protected:

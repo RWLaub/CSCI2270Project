@@ -30,16 +30,16 @@ class Graph
         void addEdge(std::string v1, std::string v2, float weight); //Rami
         void addVertex(std::string name); //Richard
         void displayEdges(std::string startingSta); //Rami  //main
-        int pathLength(std::string startingSta, std::string endingSta); //Richard
+        float pathLength(std::string startingSta, std::string endingSta); //Richard
         void showAllSta(); //Rami  //main
-        void TSPNN(std::string startingSta); //Richard  //main ompare with TSP20PT
+        std::vector<vertex> TSPNN(std::string startingSta, float *dis); //Richard  //main ompare with TSP20PT
         void nearestFive(std::string sta); //Richard //main
         //void shortestPath(std::string Sta1, std::string Sta2, std::string Sta3, std::string Sta4, std::string Sta5);
         void bestSS(std::string startingSta); //Rami //main
         //void TSPCW(std::string hub);  //Clarke-Wright rami
-        void TSP2Opt(std::string startingSta); //Richard
-        void printR(queueVertex route); //Rami
-
+        std::vector<vertex> TSP2Opt(std::string startingSta, float *dis); //Richard
+        void printR(std::vector<vertex> path); //Rami
+        float totalTourLength(std::vector<vertex> path);
 
 
     protected:

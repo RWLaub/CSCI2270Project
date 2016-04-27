@@ -250,8 +250,8 @@ std::vector<vertex> Graph::TSP2Opt(std::string startingSta, float *dis){
     vector<vertex> T = TSPNN(startingSta,dis);
     bool noChange = true;
     while(noChange){
-        for(int i = 0; i < T.size()-1; i++){
-            for(int j = i + 1; j < T.size(); j++){
+        for(unsigned i = 0; i < T.size()-1; i++){
+            for(unsigned j = i + 1; j < T.size(); j++){
                 vector<vertex> newT = T;
                 vertex tmp = T[i];
                 newT[i] = newT[j];

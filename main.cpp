@@ -50,7 +50,7 @@ int main(int argc, char*argv[])
 				cout<<"Enter a valid station (press 1 to view all stations)"<<endl;
 			}else{
 				float n = 0;
-				vector<vertex> rout = g.TSPNN(data, &n);
+				vector<vertex> rout = g.TSP2Opt(data, &n);
 				g.printR(rout);
 				cout<<"It has a distance of "<<n << " miles." << endl;
 			}

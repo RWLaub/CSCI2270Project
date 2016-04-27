@@ -38,22 +38,38 @@ int main(int argc, char*argv[])
 		} else if (userIn == "2"){
 			cout<<"Enter a station name:"<<endl;
 			getline(cin,data);
-			g.nearestFive(data);
+			if(!g.isStation(data)){
+				cout<<"Enter a valid station (press 1 to view all stations)"<<endl;
+			} else{
+				g.nearestFive(data);
+			}
 		} else if (userIn == "3"){
 			cout<<"Enter the starting station:"<<endl;
 			getline(cin,data);
-			float n = 0;
-			vector<vertex> rout = g.TSPNN(data, &n);
-			g.printR(rout);
-			cout<<"It has a distance of "<<n << " miles." << endl;
+			if(!g.isStation(data)){
+				cout<<"Enter a valid station (press 1 to view all stations)"<<endl;
+			}else{
+				float n = 0;
+				vector<vertex> rout = g.TSPNN(data, &n);
+				g.printR(rout);
+				cout<<"It has a distance of "<<n << " miles." << endl;
+			}
 		} else if (userIn == "4"){
 			cout << "Enter a station name:" << endl;
 			getline(cin,data);
-			g.bestSS(data);
+			if(!g.isStation(data)){
+				cout<<"Enter a valid station (press 1 to view all stations)"<<endl;
+			} else{
+				g.bestSS(data);
+			}
 		} else if (userIn == "5"){
 			cout << "Enter a station name:" << endl;
 			getline(cin,data);
-			g.displayEdges(data);
+			if(!g.isStation(data)){
+				cout<<"Enter a valid station (press 1 to view all stations)"<<endl;
+			}else{
+				g.displayEdges(data);
+			}
 		} else if (userIn == "6"){
 			cout<<"Goodbye!"<<endl;
 			break;

@@ -16,9 +16,52 @@ int main(int argc, char*argv[])
     // Read file into graph
     //readFileIntoGraph(g, "bcycleStations.txt");
     readFileIntoGraph(g, argv[1]);
+	
+	bool end = true;
+	string userIn;
+	string data;
+	
+	while(end){
+		
+		cout<<"======Main Menu======"<<endl;
+		cout<<"1. Show all stations"<<endl;
+		cout<<"2. Nearest five stations"<<endl;
+		cout<<"3. Find route"<<endl;
+		cout<<"4. Find best starting station"<<endl;
+		cout<<"5. How far other stations from me"<< endl; 
+		cout<<"6. Quit"<<endl;
 
-    g.TSPNN("35th & Colorado");
+		getline(cin,userIn);
+		
+		if (userIn == "1"){
+			g.showAllSta();
+		} else if (userIn == "2"){
+			cout<<"Enter a station name:"<<endl;
+			getline(cin,data);
+			g.nearestFive(data);
+		} else if (userIn == "3"){
+			cout<<"Enter the starting station:"<<endl;
+			getline(cin,data);
+			float n = 0;
+			vector<vertex> rout = g.TSPNN(data, &n);
+			g.printR(rout);
+			cout<<"It has a distance of "<<n << " miles." << endl;
+		} else if (userIn == "4"){
+			cout << "Enter a station name:" << endl;
+			getline(cin,data);
+			g.bestSS(data);
+		} else if (userIn == "5"){
+			cout << "Enter a station name:" << endl;
+			getline(cin,data);
+			g.displayEdges(data);
+		} else if (userIn == "6"){
+			cout<<"Goodbye!"<<endl;
+			break;
+		} else {
+			cout<< "error: Invalid entry,\n choose a valid number!"<<endl;
+		}
 
+	}
     return 0;
 }
 
@@ -39,7 +82,7 @@ void readFileIntoGraph(Graph & g, char* fileName)
     string line;
     getline(in_stream,line);
     std::stringstream ss(line);
-    int y = 0;
+    //int y = 0;
 
     // Read a list of cities from the first line
     while (getline(ss,city,','))

@@ -276,3 +276,12 @@ float Graph::totalTourLength(std::vector<vertex> path){
     dis += pathLength(path[path.size()-1].name, path[0].name);
     return dis;
 }
+
+bool Graph::isStation(std::string station){
+	for(unsigned i = 0; i<stations.size(); i++){
+		if(stations[i].name == station){
+			return true;
+		}
+	}
+	return false;
+}
